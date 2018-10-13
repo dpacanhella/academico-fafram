@@ -25,7 +25,7 @@ public class AlunoController {
   @Autowired
   private AlunoMapper alunoMapper;
 
-  @PostMapping("/{codigoAluno}/aplicar-presencao")
+  @PostMapping("/aplicar-presenca")
   @Transactional
   public AlunoDTO salveOrUpdateAluno(
       @RequestParam(required = false) String codigoAluno,
