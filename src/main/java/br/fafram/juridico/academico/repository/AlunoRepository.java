@@ -12,4 +12,6 @@ public interface AlunoRepository extends JpaRepository<Aluno, Integer> {
   Optional<Aluno> findByCodigoAluno(String codigoAluno);
 
   List<Aluno> findByQtdePresencaGreaterThanEqual(Integer qtdePresenca);
+
+  List<Aluno> findByQtdePresencaGreaterThanEqualOrderByQtdePresencaDesc(Integer qtdePresenca);
 }

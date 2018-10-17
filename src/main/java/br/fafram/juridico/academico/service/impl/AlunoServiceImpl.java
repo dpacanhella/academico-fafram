@@ -34,7 +34,7 @@ public class AlunoServiceImpl implements AlunoService {
 
   @Override
   public List<Aluno> getAprovados(Integer qtdePresenca) {
-    return alunoRepository.findByQtdePresencaGreaterThanEqual(qtdePresenca);
+    return alunoRepository.findByQtdePresencaGreaterThanEqualOrderByQtdePresencaDesc(qtdePresenca);
   }
 
 }
