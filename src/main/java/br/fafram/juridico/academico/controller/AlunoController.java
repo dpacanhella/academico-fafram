@@ -62,53 +62,10 @@ public class AlunoController {
     return alunoMapper.toListDTO(alunos);
   }
 
-//  @GetMapping("/gerarPDF")
-//  public ResponseEntity<byte[]> retornaAprovados(@RequestParam Integer qtdePresenca)
-//      throws IOException, DocumentException {
-//    List<AlunoDTO> alunos = alunoMapper.toListDTO(alunoService.getAprovados(qtdePresenca));
-//
-//    Document document = new Document();
-//    ByteArrayOutputStream stream = new ByteArrayOutputStream();
-//    PdfWriter.getInstance(document, stream);
-//    document.open();
-//
-//    Paragraph p = new Paragraph();
-//    p.add("Aprovados que tiveram igual/acima de " + qtdePresenca + " presenças");
-//    p.setAlignment(Element.ALIGN_CENTER);
-//    Font font = new Font();
-//    font.setSize(30);
-//    font.setStyle(3);
-//    p.setFont(font);
-//    document.add(p);
-//
-//    pularLinha(document);
-//
-//    for (AlunoDTO al: alunos) {
-//      Paragraph p2 = new Paragraph();
-//      p2.add(al.getCodigoAluno() + "   -  " + al.getNomeAluno());
-//      document.add(p2);
-//    }
-//
-//    document.close();
-//
-//    HttpHeaders headers = new HttpHeaders();
-//    headers.add("content-disposition", "attachment; filename=" + FILE_NAME);
-//    headers.add("Content-Type","pdf");
-//    headers.setContentType(MediaType.parseMediaType("application/pdf"));
-//    String filename = FILE_NAME;
-//    headers.setContentDispositionFormData(filename, filename);
-//    headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
-//    ResponseEntity<byte[]> response = new ResponseEntity<>(stream.toByteArray(), headers, HttpStatus.OK);
-//
-//
-//
-//    return response;
-//  }
-
-
   @GetMapping("/gerarPDF")
   public List<AlunoDTO> retornaAprovados(@RequestParam Integer qtdePresenca) throws IOException {
     return alunoMapper.toListDTO(alunoService.getAprovados(qtdePresenca));
+
   }
 
   private void pularLinha(Document document) throws DocumentException {
